@@ -11,6 +11,7 @@ import AddVideo from "./videos/AddVideo"
 import AdminVideoList from "./videos/AdminVideoList"
 import AdminDashboard from "./admin-dashboard/AdminDashboard"
 import AssignVideo from "./assignments/AssignVideo"
+import VideoPlayer from "./video-player/VideoPlayer"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route element={<AppLayout />} >
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/videos/assigned" element={<VideoList />} />
+            <Route path="/video-player/:videoUrl/:thumbnail" element={<VideoPlayer />} />
           </Route>
         </Route>
 

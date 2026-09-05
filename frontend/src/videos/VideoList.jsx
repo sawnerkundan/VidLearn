@@ -1,50 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./VideoList.css";
 import api from "../services/api";
 import { UPLOAD_URL } from "../utils/constants";
 
-// const videos = [
-//   {
-//     id: 1,
-//     title: "Introduction to React",
-//     description: "Learn the basics of React and component-based development.",
-//     duration: "12:45",
-//     category: "React",
-//     progress: 80,
-//     thumbnail: "https://img.youtube.com/vi/SqcY0GlETPk/mqdefault.jpg",
-//   },
-//   {
-//     id: 2,
-//     title: "React Components",
-//     description: "Understand functional components, props and JSX.",
-//     duration: "18:20",
-//     category: "React",
-//     progress: 55,
-//     thumbnail: "https://img.youtube.com/vi/SqcY0GlETPk/mqdefault.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "React Hooks",
-//     description: "Learn useState, useEffect and other important hooks.",
-//     duration: "24:10",
-//     category: "React",
-//     progress: 30,
-//     thumbnail: "https://img.youtube.com/vi/SqcY0GlETPk/mqdefault.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "Node.js Introduction",
-//     description: "Build backend applications using Node.js.",
-//     duration: "20:15",
-//     category: "Node.js",
-//     progress: 0,
-//     thumbnail: "https://img.youtube.com/vi/TlB_eWDSMt4/mqdefault.jpg",
-//   },
-// ];
-
 const VideoList = () => {
+  const navigate = useNavigate();
   const [videos, setVideos] = useState([]);
-  // get my assigned videos
+  
   useEffect(() => {
     api.get('/assignments/my')
       .then((res) => {
@@ -54,8 +17,10 @@ const VideoList = () => {
       })
   })
 
-  const handlePlay = (videoUrl) => {
-    window.location.href= `${UPLOAD_URL}/videos/${videoUrl}`;
+  const handlePlay = (video) => {
+    // window.location.href= `${UPLOAD_URL}/videos/${videoUrl}`;
+    // return <Navigate to={`/video-player/${videoUrl}`} replace />;
+    navigate(`/video-player/${video.videoUrl}/${video.thumbnail}`);
   }
   return (
     <div className="video-list-page">
@@ -75,7 +40,7 @@ const VideoList = () => {
 
       <div className="video-grid">
         {videos.map(({video}) => (
-          <div className="video-card" key={video.id} onClick={() => handlePlay(video.videoUrl)}>
+          <div className="video-card" key={video.id} onClick={() => handlePlay(video)}>
             <div className="video-thumbnail">
               <img src={`${UPLOAD_URL}/thumbnails/${video.thumbnail}`} alt={video.title} />
 
@@ -108,7 +73,7 @@ const VideoList = () => {
                 />
               </div>
 
-              <button className="continue-button" onClick={() => handlePlay(video.videoUrl)}>
+              <button className="continue-button" onClick={() => handlePlay(video)}>
                 {video.progress > 0 ? "Continue Learning" : "Start Learning"}
               </button>
             </div>
