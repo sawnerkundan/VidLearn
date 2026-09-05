@@ -97,7 +97,7 @@ const AdminVideoList = () => {
                     {/* URL */}
                     <td>
                       <a
-                        href={video.videoUrl}
+                        href={`${UPLOAD_URL}/videos/${video.videoUrl}`}
                         target="_blank"
                         rel="noreferrer"
                         className="video-url"

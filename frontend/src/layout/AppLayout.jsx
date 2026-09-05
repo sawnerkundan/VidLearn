@@ -3,8 +3,10 @@ import "./AppLayout.css";
 
 const AppLayout = () => {
     /** on logout click clear local storage  */
+    const user = JSON.parse(localStorage.getItem("user"));
     const logout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
         window.location.href = "/login";
     }   
 
@@ -14,10 +16,24 @@ const AppLayout = () => {
         <div className="logo">VidLearn</div>
 
         <nav className="sidebar-nav">
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/videos/assigned">Assigned Videos</Link>
-          <Link to="/videos/add">Add Video</Link>
-          <Link to="/videos/list">Video List</Link>
+          {user?.role === "user" && (
+            <Link to="/dashboard">Dashboard</Link>
+          )}
+          {user?.role === "admin" && (
+            <Link to="/admin/dashboard">Admin Dashboard</Link>
+          )}
+          {user?.role === "user" && (
+            <Link to="/videos/assigned">Assigned Videos</Link>
+          )}
+          {user?.role === "admin" && (
+            <Link to="/videos/add">Add Video</Link>
+          )}
+          {user?.role === "admin" && (
+            <Link to="/videos/list">Video List</Link>
+          )}
+           {user?.role === "admin" && (
+            <Link to="/assignments">Video Assignment</Link>
+          )}
         </nav>
 
         <button className="logout" type="button" onClick={logout}>

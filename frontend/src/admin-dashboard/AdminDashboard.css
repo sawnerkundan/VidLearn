@@ -1,0 +1,379 @@
+.dashboard {
+  width: 100%;
+}
+
+/* Welcome */
+
+.welcome {
+  margin-bottom: 25px;
+}
+
+.welcome h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.welcome p {
+  margin: 0;
+  color: #777;
+}
+
+
+/* Stats */
+
+.stats-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.stat-icon {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 27px;
+}
+
+.stat-card h3 {
+  margin: 0 0 5px;
+
+  font-size: 21px;
+}
+
+.stat-card p {
+  margin: 0;
+
+  color: #777;
+}
+
+
+/* Sections */
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section-header button {
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #555;
+}
+
+
+/* Continue */
+
+.continue-card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+
+  padding: 20px;
+
+  display: flex;
+
+  gap: 25px;
+}
+
+.continue-thumbnail {
+  width: 115px;
+  height: 160px;
+
+  flex-shrink: 0;
+
+  background: #e9e9e9;
+
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 35px;
+}
+
+.continue-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.category {
+  font-size: 13px;
+  color: #777;
+}
+
+.continue-content h3 {
+  margin: 8px 0;
+
+  font-size: 21px;
+}
+
+.continue-content p {
+  margin: 0 0 15px;
+
+  color: #777;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 13px;
+
+  color: #666;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 7px;
+
+  background: #eeeeee;
+
+  border-radius: 5px;
+
+  margin: 8px 0 15px;
+}
+
+.progress {
+  height: 100%;
+
+  background: #333;
+
+  border-radius: 5px;
+}
+
+.continue-btn {
+  border: none;
+
+  background: #222;
+  color: #ffffff;
+
+  padding: 10px 18px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+
+/* Courses */
+
+.course-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.course-card {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e1;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.thumbnail {
+  height: 140px;
+
+  background: #e9e9e9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32px;
+}
+
+.course-body {
+  padding: 15px;
+}
+
+.course-body > span {
+  font-size: 12px;
+  color: #777;
+}
+
+.course-body h3 {
+  margin: 7px 0;
+}
+
+.course-body p {
+  margin: 0 0 12px;
+
+  color: #777;
+}
+
+.small-progress {
+  height: 5px;
+
+  background: #eeeeee;
+
+  border-radius: 5px;
+}
+
+.small-progress div {
+  height: 100%;
+
+  background: #333;
+
+  border-radius: 5px;
+}
+
+.course-body small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #777;
+}
+
+
+/* Videos */
+
+.video-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.video-card {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e1;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.video-card h3 {
+  margin: 12px 15px 5px;
+
+  font-size: 15px;
+}
+
+.video-card p {
+  margin: 0 15px 15px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .main-content {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .continue-card {
+    flex-direction: column;
+  }
+
+  .continue-thumbnail {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .page-content {
+    padding: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}

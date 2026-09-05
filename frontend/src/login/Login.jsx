@@ -43,8 +43,14 @@ const Login = () => {
             const loginData = await login(formData.email, formData.password);
 
             const token = loginData.token;
+            const user = loginData.user;
             localStorage.setItem("token", token);
-            window.location.href = "/dashboard";
+            localStorage.setItem("user", JSON.stringify(user));
+            if (user.role === "admin") {
+                window.location.href = "/admin/dashboard";
+            } else {
+                window.location.href = "/dashboard";
+            }
         } catch (error) {
             setError("Invalid email or password");
             console.error("Login failed:", error);
